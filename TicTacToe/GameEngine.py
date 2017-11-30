@@ -18,7 +18,7 @@ class GameEngine(object):
         """This function decides which player plays first."""
         return 'player' if self.player == 'X' else 'computer'
 
-    def getHumanMove(self, boardObj):
+    def makeHumanMove(self, boardObj):
         """This function takes a move from the human player and adds it to the board state."""
         while True:
             print 'Make your move by giving a number as input. [Grid is labeled 1-9 from the right]'
@@ -30,7 +30,7 @@ class GameEngine(object):
             except:
                 print 'Illegal input. Enter only a numeral value between 1-9'
 
-    def ComputerMove(self, boardObj):
+    def makeComputerMove(self, boardObj):
         """This function gets the next best move for the computer."""
         move = self.getBestMove(boardObj)
         boardObj.makeMove(move, self.computer)
