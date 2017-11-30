@@ -16,7 +16,7 @@ My thought process at that time was to come up with a way to experiment with all
 - In the isWinner function, there's a lot of unnecessary repetition of "self.board[n] == player and self.board[m] == player and self.board[w] == player”.
 
 
-•	I used a dict instead of a list for its efficiency of looking up a value. By using conditionals, I wanted to take advantage of short circuit evaluation. Using a variable named player was only for readability purpose. However I do recognize that the code becomes chunky.
+•	I used a dict instead of a list for its efficiency of looking up a value. By using conditionals, I wanted to take advantage of short circuit evaluation. Using a variable named player was only for readability purpose. However, I do recognize that the code becomes chunky.
 In regards to this, I did consider changing the data structure for representation of the board to a list of list of bit strings.
 Then condition for evaluation would just be iteration over the lists and checking for condition as “010 == 111”.
 I haven’t implemented the changes for that yet.
