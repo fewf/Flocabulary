@@ -77,20 +77,18 @@ class GameEngine(object):
         else:
             return None
 
-    def checkForWinsAndTies(self, boardObj,type):
+    def checkForWinsAndTies(self, boardObj):
         """This function decides if the game is won or resulted in a tie."""
-        player = self.player if type =='human' else self.computer
-        if boardObj.isWinner(player):
-            if type =='human':
-                print 'You win!!\n\n'
-            else:
-                print 'The computer wins\n\n'
-            return False
-        else:
-            if boardObj.isBoardFilled():
+        if boardObj.isWinner(self.player):
+            print 'You win!!\n\n'
+        elif boardObj.isWinner(self.computer):
+            print 'The computer wins\n\n'
+        elif boardObj.isBoardFilled():
                 print('The game is a tie!\n\n')
-                return False
+        else:
             return True
+
+        return False
 
 
 

@@ -27,19 +27,11 @@ class TestTicTacToe(unittest.TestCase):
     def test_Board_Player_Wins(self):
         self.board.board[1] = self.board.board[2] = self.board.board[3] = 'X'
         letter = 'O'
-        for i in xrange(4, 10):
-            self.board.makeMove(i, letter)
-            letter = 'X' if letter == 'O' else 'O'
-
         self.assertEqual(self.board.isWinner('X'), True)
 
     def test_Board_Player_Loses(self):
         self.board.board[1] = self.board.board[2] = self.board.board[3] = 'X'
         letter = 'O'
-        for i in xrange(4, 10):
-            self.board.makeMove(i, letter)
-            letter = 'X' if letter == 'O' else 'O'
-
         self.assertEqual(self.board.isWinner('O'), False)
 
 

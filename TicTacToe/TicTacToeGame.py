@@ -31,13 +31,13 @@ def main():
             if turn == 'player':
                 # Player’s turn.
                 engine.getHumanMove(board)
-                game = engine.checkForWinsAndTies(board, type='human')
+                game = engine.checkForWinsAndTies(board)
                 turn = 'computer'
             else:
                 # Computer’s turn.
                 engine.getComputerMove(board)
                 board.printBoard()
-                game = engine.checkForWinsAndTies(board, type='computer')
+                game = engine.checkForWinsAndTies(board)
                 turn = 'player'
         print('Do you want to play again? (y or n)')
         again = raw_input().lower().startswith('y')

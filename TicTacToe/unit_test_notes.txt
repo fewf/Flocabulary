@@ -1,0 +1,37 @@
+
+If player = X then there are exactly 9 choose 5 legal inputs (because X moves first, X can win with minimum 3 X's, or tie with maximum 5 X's.
+
+If player = X then there are exactly 9 choose 4 legal inputs (because X moves first, O can win with minimum 3 O's, or tie with maximum 4 O's.
+
+9 choose 5 is 15,120 permutations
+9 choose 4 is  3,024 permutations
+
+Therefore, cover all cases of legal player input with 15,120 + 3,024 = 18,144 test cases.
+
+Each case is printed on one line in file named "player_test_data_pre1.txt".
+
+To create "player_test_data.txt" run the following from any sh/csh/bash/etc. shell:
+
+  tr ' ' '\n' < player_test_data_pre1.txt > player_test_data.txt
+
+If running this many test cases is time-prohibitive, pick a random (or pseudorandom) collection of lines from the player_test_data_pre1.txt (before running "tr") and delete the rest.
+
+
+/// Code to try
+def main():
+ print 'xxxxxx  TIC TAC TOE  xxxxxx \n\n\n'
+
+ # uncomment exactly ONE of the following
+ # runUnittests = True
+ # runUnittests = False
+ if runUnittests:
+  try:                                  
+   sys.stdin = open("./player_test_data.txt")
+  except (IOError, OSError):            
+   # fail & crash here.
+
+
+
+ while True:
+  # set the board
+  board = Board()
