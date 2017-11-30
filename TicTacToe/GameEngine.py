@@ -30,7 +30,7 @@ class GameEngine(object):
             except:
                 print 'Illegal input. Enter only a numeral value between 1-9'
 
-    def getComputerMove(self, boardObj):
+    def ComputerMove(self, boardObj):
         """This function gets the next best move for the computer."""
         move = self.getBestMove(boardObj)
         boardObj.makeMove(move, self.computer)
