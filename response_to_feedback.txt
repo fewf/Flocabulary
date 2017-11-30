@@ -1,0 +1,35 @@
+FizzBuzz:
+This is a straighforward and functional implementation. The only thing I can criticize is that in the first conditional ("if num % 5 == 0 and num % 3 == 0:") you put the spaces around the % operator, but for the rest of the conditions, you do not. 
+
+• Thank you for noticing that! Code consistency is now maintained with spaces between operators for readability.
+
+TicTacToe:
+I really enjoyed playing this game and analyzing the code that runs it. Here's my feedback, both positive and critical:
+
+- I think it's great that you included tests with your code. We rely on tests heavily here at Flocabulary. Some of the tests seem to take unnecessary steps, like in `test_Board_Player_wins`, I don't understand why after setting up the winning condition, the rest of the board is filled in alternating X's and O’s.
+
+•  Thanks for pointing this out. I agree that it was not required to fill the board with alternating X’s and O’s just to check the winning/losing condition. I have removed the loops for both lose and win conditions.
+My thought process at that time was to come up with a way to experiment with all possible legal moves a player could make in the game which I shared on the repository. 
+
+- The separation of Board and GameEngine as distinct classes is a smart choice and makes reading and understanding the code easier.
+- In the Board object, why did you choose to use a Dict as opposed to a list of length 9?
+- In the isWinner function, there's a lot of unnecessary repetition of "self.board[n] == player and self.board[m] == player and self.board[w] == player”.
+
+
+•	I used a dict instead of a list for its efficiency of looking up a value. By using conditionals, I wanted to take advantage of short circuit evaluation. Using a variable named player was only for readability purpose. However I do recognize that the code becomes chunky.
+In regards to this, I did consider changing the data structure for representation of the board to a list of list of bit strings.
+Then condition for evaluation would just be iteration over the lists and checking for condition as “010 == 111”.
+I haven’t implemented the changes for that yet.
+ 
+
+-	In GameEnginer, getHumanMove and getComputerMove are possibly confusing because they are not read methods, but change the state of the game. (Compare to getBestMove, which is indeed a read only operation).
+• Thanks for pointing that out! I tried to name the functions as verbs but using get and set when they are generally used as accessor functions definitely can be confusing!
+I changed the names now to “makeHumanMove” and “makeComputerMove”
+
+
+- The `checkForWinsAndTies` method takes the argument `type` which overrides the Python global type function; this is dangerous. It also seems like it would be a beneficial simplification if the function didn't take that argument at all, and internally it could check for whether either player won.
+•	 Thank you – yes type is a builtin function and using it as a variable was not a good idea. I did remove the concept of using a type in this function.
+
+-	For most of the GameEngine code, it seems like the sides of the game are "player" vs "computer", but then in `checkForWinsAndTies`, it becomes "human" vs "computer". This seems to complicate things.
+• Having removed the concept of “human” as a type in the checkForWinsandTies function, I think this ensures more readability and consistency!
+
